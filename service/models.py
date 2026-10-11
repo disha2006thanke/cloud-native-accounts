@@ -2,13 +2,12 @@
 import os
 import sqlite3
 
-DATABASE = os.environ.get("DATABASE_PATH", "accounts.db")
-
-
 def get_connection():
-    connection = sqlite3.connect(DATABASE)
+    database = os.environ.get("DATABASE_PATH", "accounts.db")
+    connection = sqlite3.connect(database)
     connection.row_factory = sqlite3.Row
     return connection
+
 
 
 def init_db():
